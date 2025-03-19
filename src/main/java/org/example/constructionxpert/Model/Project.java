@@ -27,9 +27,9 @@ public class Project {
     public void setName(String name) { this.name = name; }
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
-    public java.sql.Date getStartDate() { return (java.sql.Date) startDate; }
+    public Date getStartDate() { return startDate; }
     public void setStartDate(Date startDate) { this.startDate = startDate; }
-    public java.sql.Date getEndDate() { return (java.sql.Date) endDate; }
+    public Date getEndDate() { return endDate; }
     public void setEndDate(Date endDate) { this.endDate = endDate; }
     public double getBudget() { return budget; }
     public void setBudget(double budget) { this.budget = budget; }
