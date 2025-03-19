@@ -95,6 +95,7 @@ public class TaskDAOImpl implements TaskDAO {
             conn = DatabaseConnection.getConnection();
             conn.setAutoCommit(false);
 
+            // Check resource availability
             String checkSql = "SELECT quantity FROM resources WHERE id = ? FOR UPDATE";
             try (PreparedStatement checkStmt = conn.prepareStatement(checkSql)) {
                 checkStmt.setInt(1, resourceId);
@@ -109,6 +110,7 @@ public class TaskDAOImpl implements TaskDAO {
                 }
             }
 
+            // Update resource stock
             String updateSql = "UPDATE resources SET quantity = quantity - ? WHERE id = ?";
             try (PreparedStatement updateStmt = conn.prepareStatement(updateSql)) {
                 updateStmt.setInt(1, quantityUsed);
@@ -116,10 +118,15 @@ public class TaskDAOImpl implements TaskDAO {
                 updateStmt.executeUpdate();
             }
 
-            String insertSql = "INSERT IGNORE INTO task_resources (task_id, resource_id) VALUES (?, ?)";
+            // Insert or update task_resources with quantity_used
+            String insertSql = "INSERT INTO task_resources (task_id, resource_id, quantity_used) " +
+                    "VALUES (?, ?, ?) " +
+                    "ON DUPLICATE KEY UPDATE quantity_used = quantity_used + ?";
             try (PreparedStatement insertStmt = conn.prepareStatement(insertSql)) {
                 insertStmt.setInt(1, taskId);
                 insertStmt.setInt(2, resourceId);
+                insertStmt.setInt(3, quantityUsed);
+                insertStmt.setInt(4, quantityUsed); // Increment if already exists
                 insertStmt.executeUpdate();
             }
 
@@ -140,7 +147,10 @@ public class TaskDAOImpl implements TaskDAO {
     @Override
     public List<Resource> findResourcesByTaskId(int taskId) throws SQLException {
         List<Resource> resources = new ArrayList<>();
-        String sql = "SELECT r.* FROM resources r JOIN task_resources tr ON r.id = tr.resource_id WHERE tr.task_id = ?";
+        String sql = "SELECT r.*, tr.quantity_used " +
+                "FROM resources r " +
+                "JOIN task_resources tr ON r.id = tr.resource_id " +
+                "WHERE tr.task_id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, taskId);
@@ -150,8 +160,9 @@ public class TaskDAOImpl implements TaskDAO {
                 resource.setId(rs.getInt("id"));
                 resource.setName(rs.getString("name"));
                 resource.setType(rs.getString("type"));
-                resource.setQuantity(rs.getInt("quantity"));
+                resource.setQuantity(rs.getInt("quantity")); // Remaining stock
                 resource.setSupplierInfo(rs.getString("supplier_info"));
+                resource.setQuantityUsed(rs.getInt("quantity_used")); // Quantity used for this task
                 resources.add(resource);
             }
         }

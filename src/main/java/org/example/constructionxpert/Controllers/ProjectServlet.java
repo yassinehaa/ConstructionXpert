@@ -10,10 +10,13 @@ import org.example.constructionxpert.DAO.TaskDAO;
 import org.example.constructionxpert.DAO.impl.ProjectDAOImpl;
 import org.example.constructionxpert.DAO.impl.TaskDAOImpl;
 import org.example.constructionxpert.Model.Project;
+import org.example.constructionxpert.Model.Resource;
+import org.example.constructionxpert.Model.Task;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 @WebServlet("/projects/*")
 public class ProjectServlet extends HttpServlet {
@@ -54,8 +57,14 @@ public class ProjectServlet extends HttpServlet {
                 int id = Integer.parseInt(req.getParameter("id"));
                 Project project = projectDAO.findById(id);
                 if (project != null) {
+                    // Fetch tasks and their resources
+                    List<Task> tasks = taskDAO.findByProjectId(id);
+                    for (Task task : tasks) {
+                        List<Resource> resources = taskDAO.findResourcesByTaskId(task.getId());
+                        task.setResources(resources); // Attach resources to each task
+                    }
                     req.setAttribute("project", project);
-                    req.setAttribute("tasks", taskDAO.findByProjectId(id));
+                    req.setAttribute("tasks", tasks);
                     req.getRequestDispatcher("/WEB-INF/views/project/details.jsp").forward(req, resp);
                 } else {
                     resp.sendError(HttpServletResponse.SC_NOT_FOUND, "Projet non trouvé");

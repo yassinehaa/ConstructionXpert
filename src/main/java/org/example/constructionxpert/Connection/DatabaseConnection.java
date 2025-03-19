@@ -49,6 +49,7 @@ public class DatabaseConnection {
                 stmt.executeUpdate("CREATE TABLE IF NOT EXISTS task_resources (" +
                         "task_id INT, " +
                         "resource_id INT, " +
+                        "quantity_used INT NOT NULL DEFAULT 0, " +
                         "FOREIGN KEY (task_id) REFERENCES tasks(id) ON DELETE CASCADE, " +
                         "FOREIGN KEY (resource_id) REFERENCES resources(id) ON DELETE CASCADE, " +
                         "PRIMARY KEY (task_id, resource_id))");

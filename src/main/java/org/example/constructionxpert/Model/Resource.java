@@ -6,9 +6,11 @@ public class Resource {
     private String type;
     private int quantity;
     private String supplierInfo;
+    private int quantityUsed; // Added to store the quantity used for a specific task
 
     // Constructeurs
     public Resource() {}
+
     public Resource(String name, String type, int quantity, String supplierInfo) {
         this.name = name;
         this.type = type;
@@ -27,4 +29,6 @@ public class Resource {
     public void setQuantity(int quantity) { this.quantity = quantity; }
     public String getSupplierInfo() { return supplierInfo; }
     public void setSupplierInfo(String supplierInfo) { this.supplierInfo = supplierInfo; }
+    public int getQuantityUsed() { return quantityUsed; }
+    public void setQuantityUsed(int quantityUsed) { this.quantityUsed = quantityUsed; }
 }

@@ -4,10 +4,8 @@
 <head>
     <title>Détails du Projet</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Keeping your inline CSS as a fallback or for custom tweaks */
         table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
         th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
         th { background-color: #f2f2f2; }
@@ -70,17 +68,17 @@
                                     <th class="py-2 px-3">ID</th>
                                     <th class="py-2 px-3">Nom</th>
                                     <th class="py-2 px-3">Type</th>
-                                    <th class="py-2 px-3">Quantité restante</th>
+                                    <th class="py-2 px-3">Quantité utilisée</th> <!-- Updated header -->
                                     <th class="py-2 px-3">Info Fournisseur</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach var="resource" items="${taskDAO.findResourcesByTaskId(task.id)}">
+                                <c:forEach var="resource" items="${task.resources}">
                                     <tr class="border-b hover:bg-gray-50">
                                         <td class="py-2 px-3">${resource.id}</td>
                                         <td class="py-2 px-3">${resource.name}</td>
                                         <td class="py-2 px-3">${resource.type}</td>
-                                        <td class="py-2 px-3">${resource.quantity}</td>
+                                        <td class="py-2 px-3">${resource.quantityUsed}</td> <!-- Updated to quantityUsed -->
                                         <td class="py-2 px-3">${resource.supplierInfo}</td>
                                     </tr>
                                 </c:forEach>

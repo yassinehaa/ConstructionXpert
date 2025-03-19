@@ -1,6 +1,7 @@
 package org.example.constructionxpert.Model;
 
 import java.util.Date;
+import java.util.List;
 
 public class Task {
     private int id;
@@ -8,17 +9,12 @@ public class Task {
     private String description;
     private Date startDate;
     private Date endDate;
+    private List<Resource> resources; // Add this field
 
-    // Constructeurs
+    // Constructors
     public Task() {}
-    public Task(int projectId, String description, Date startDate, Date endDate) {
-        this.projectId = projectId;
-        this.description = description;
-        this.startDate = startDate;
-        this.endDate = endDate;
-    }
 
-    // Getters et Setters
+    // Getters and setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
     public int getProjectId() { return projectId; }
@@ -29,4 +25,6 @@ public class Task {
     public void setStartDate(Date startDate) { this.startDate = startDate; }
     public Date getEndDate() { return endDate; }
     public void setEndDate(Date endDate) { this.endDate = endDate; }
+    public List<Resource> getResources() { return resources; }
+    public void setResources(List<Resource> resources) { this.resources = resources; }
 }
