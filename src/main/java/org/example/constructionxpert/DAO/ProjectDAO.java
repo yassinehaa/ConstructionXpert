@@ -9,7 +9,7 @@ import java.util.List;
 public interface ProjectDAO {
     void create(Project project) throws SQLException;
     List<Project> findAll() throws SQLException;
-    Project findById(int id) throws SQLException; // Nouvelle méthode
+    Project findById(int id) throws SQLException;
     void update(Project project) throws SQLException;
     void delete(int id) throws SQLException;
 }

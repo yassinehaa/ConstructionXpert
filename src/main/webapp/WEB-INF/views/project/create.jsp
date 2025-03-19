@@ -3,7 +3,6 @@
 <head>
     <title>Ajouter un Projet</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-    <!-- Assuming Tailwind CSS is included via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 min-h-screen flex items-center justify-center">

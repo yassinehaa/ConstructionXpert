@@ -32,7 +32,7 @@ public class ProjectServlet extends HttpServlet {
         String action = (pathInfo != null && pathInfo.length() > 1) ? pathInfo.substring(1) : null;
 
         try {
-            if (action == null || action.isEmpty()) {
+            if (action == null) {
                 req.setAttribute("projects", projectDAO.findAll());
                 req.getRequestDispatcher("/WEB-INF/views/project/list.jsp").forward(req, resp);
             } else if ("create".equals(action)) {

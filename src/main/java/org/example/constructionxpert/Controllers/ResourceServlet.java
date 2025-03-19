@@ -28,16 +28,13 @@ public class ResourceServlet extends HttpServlet {
 
         try {
             if (action == null || action.isEmpty()) {
-                // Afficher la liste des ressources (READ - Liste)
                 req.setAttribute("resources", resourceDAO.findAll());
                 req.getRequestDispatcher("/WEB-INF/views/resource/list.jsp").forward(req, resp);
             } else if ("create".equals(action)) {
-                // Afficher le formulaire de création (CREATE - Formulaire)
                 req.getRequestDispatcher("/WEB-INF/views/resource/create.jsp").forward(req, resp);
             } else if ("edit".equals(action)) {
-                // Afficher le formulaire de modification (READ - Détail)
                 int id = Integer.parseInt(req.getParameter("id"));
-                Resource resource = resourceDAO.findById(id); // Ajoutez cette méthode dans ResourceDAO
+                Resource resource = resourceDAO.findById(id);
                 if (resource != null) {
                     req.setAttribute("resource", resource);
                     req.getRequestDispatcher("/WEB-INF/views/resource/edit.jsp").forward(req, resp);
@@ -45,7 +42,6 @@ public class ResourceServlet extends HttpServlet {
                     resp.sendError(HttpServletResponse.SC_NOT_FOUND, "Ressource non trouvée");
                 }
             } else if ("delete".equals(action)) {
-                // Supprimer une ressource (DELETE)
                 int id = Integer.parseInt(req.getParameter("id"));
                 resourceDAO.delete(id);
                 resp.sendRedirect(req.getContextPath() + "/resources");
@@ -64,7 +60,6 @@ public class ResourceServlet extends HttpServlet {
 
         try {
             if (action == null || action.isEmpty()) {
-                // Créer une nouvelle ressource (CREATE)
                 Resource resource = new Resource();
                 resource.setName(req.getParameter("name"));
                 resource.setType(req.getParameter("type"));
@@ -73,7 +68,6 @@ public class ResourceServlet extends HttpServlet {
                 resourceDAO.create(resource);
                 resp.sendRedirect(req.getContextPath() + "/resources");
             } else if ("update".equals(action)) {
-                // Mettre à jour une ressource (UPDATE)
                 Resource resource = new Resource();
                 resource.setId(Integer.parseInt(req.getParameter("id")));
                 resource.setName(req.getParameter("name"));

@@ -13,5 +13,5 @@ public interface TaskDAO {
     void update(Task task) throws SQLException;
     void delete(int id) throws SQLException;
     void addResourceToTask(int taskId, int resourceId, int quantityUsed) throws SQLException;
-    List<Resource> findResourcesByTaskId(int taskId) throws SQLException; // Nouvelle méthode
+    List<Resource> findResourcesByTaskId(int taskId) throws SQLException;
 }
