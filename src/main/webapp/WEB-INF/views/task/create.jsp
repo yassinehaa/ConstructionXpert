@@ -3,10 +3,10 @@
 <head>
     <title>Ajouter une Tâche</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 min-h-screen flex items-center justify-center">
+<%@ include file="/header.jsp" %>
 <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
     <h1 class="text-2xl font-bold text-gray-800 mb-6 text-center">Ajouter une Nouvelle Tâche</h1>
     <form action="${pageContext.request.contextPath}/tasks" method="post" class="space-y-4">

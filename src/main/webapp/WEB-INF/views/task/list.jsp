@@ -4,10 +4,10 @@
 <head>
     <title>Liste des Tâches</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 min-h-screen p-6">
+<%@ include file="/header.jsp" %>
 <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-3xl font-bold text-gray-800">Liste des Tâches du Projet ${projectId}</h1>
