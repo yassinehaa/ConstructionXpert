@@ -1,13 +1,15 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <style>
     header {
-        background-color: #ffffff;
+        background: rgba(31, 41, 55, 0.85);
         padding: 1rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         position: fixed;
         width: 100%;
         top: 0;
         z-index: 1000;
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .header-container {
@@ -21,9 +23,10 @@
 
     .logo {
         font-size: 1.5rem;
-        font-weight: bold;
-        color: #1f2937;
+        font-weight: 700;
+        color: #f3f4f6;
         text-decoration: none;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
     }
 
     nav {
@@ -34,18 +37,18 @@
     .nav-button {
         display: inline-block;
         padding: 0.5rem 1rem;
-        border-radius: 15px;
-        color: white;
+        border-radius: 0.375rem;
+        color: #ffffff;
         text-decoration: none;
         transition: all 0.3s ease;
         text-align: center;
         font-size: 0.875rem;
-        background: linear-gradient(45deg, #3b82f6, #60a5fa);
+        background: rgba(59, 130, 246, 0.8);
         box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
     }
 
     .nav-button:hover {
-        background: linear-gradient(45deg, #2563eb, #3b82f6);
+        background: rgba(37, 99, 235, 0.9);
         transform: translateY(-2px);
         box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
     }
@@ -56,6 +59,7 @@
         border: none;
         font-size: 1.5rem;
         cursor: pointer;
+        color: #f3f4f6;
     }
 
     @media (max-width: 768px) {
@@ -68,12 +72,14 @@
             position: absolute;
             top: 100%;
             right: 0;
-            background-color: #ffffff;
+            background: rgba(31, 41, 55, 0.85);
             width: 100%;
             padding: 1rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
             flex-direction: column;
             gap: 0.5rem;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         nav.active {

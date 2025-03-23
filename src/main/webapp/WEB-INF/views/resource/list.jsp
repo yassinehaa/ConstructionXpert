@@ -5,7 +5,7 @@
     <title>Liste des Ressources</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style/ressources/list.css">
 </head>
-<body class="bg-gray-100 min-h-screen p-6">
+<body style="padding-top: 80px" class="bg-gray-100 min-h-screen p-6">
 <%@ include file="/header.jsp" %>
 <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
     <div class="flex justify-between items-center mb-6">

@@ -4,7 +4,6 @@
 <head>
     <title>Liste des Projets</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style/project/list.css">
-    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 min-h-screen">
 <%@ include file="/header.jsp" %>
