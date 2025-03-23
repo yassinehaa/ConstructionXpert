@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Liste des Ressources</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style/ressources/list.css">
 </head>
 <body class="bg-gray-100 min-h-screen p-6">
 <%@ include file="/header.jsp" %>
