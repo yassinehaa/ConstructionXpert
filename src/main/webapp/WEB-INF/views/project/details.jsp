@@ -22,7 +22,7 @@
             Ajouter une tâche
         </a>
     </div>
-
+<c:if test="${not empty tasks}">
     <div class="table-wrapper">
         <table>
             <thead>
@@ -85,6 +85,7 @@
             </tbody>
         </table>
     </div>
+</c:if>
 
     <a href="${pageContext.request.contextPath}/projects" class="btn btn-back">
         Retour à la liste des projets
