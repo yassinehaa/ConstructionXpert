@@ -6,12 +6,12 @@ body {
     margin: 0;
     padding: 1rem;
     min-height: 100vh;
-    padding-top: 80px;
+    padding-top: 120px;
 }
 
 .container {
     max-width: 64rem;
-    margin: 2rem auto;
+    margin: 6rem auto 2rem auto;
     background: rgba(31, 41, 55, 0.85);
     border-radius: 1rem;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
@@ -196,9 +196,9 @@ td {
     }
 
     .container {
-        margin: 1rem auto;
+        margin: 5rem auto 1rem auto;
         padding: 1rem;
-        max-width: 100%;
+        max-width: 90%;
     }
 
     h1 {

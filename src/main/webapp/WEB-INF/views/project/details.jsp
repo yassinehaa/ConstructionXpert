@@ -2,7 +2,7 @@
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style/project/details.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style/project/details.css?v=1">
     <title>Détails du Projet</title>
 </head>
 <body>
@@ -50,35 +50,37 @@
                            class="btn btn-resource">Ajouter une ressource</a>
                     </td>
                 </tr>
-                <tr class="resource-row">
-                    <td colspan="5">
-                        <div class="nested-table-wrapper">
-                            <h3>Ressources associées</h3>
-                            <table class="nested-table">
-                                <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nom</th>
-                                    <th>Type</th>
-                                    <th>Quantité utilisée</th>
-                                    <th>Info Fournisseur</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <c:forEach var="resource" items="${task.resources}">
+                <c:if test="${not empty task.resources}">
+                    <tr class="resource-row">
+                        <td colspan="5">
+                            <div class="nested-table-wrapper">
+                                <h3>Ressources associées</h3>
+                                <table class="nested-table">
+                                    <thead>
                                     <tr>
-                                        <td>${resource.id}</td>
-                                        <td>${resource.name}</td>
-                                        <td>${resource.type}</td>
-                                        <td>${resource.quantityUsed}</td>
-                                        <td>${resource.supplierInfo}</td>
+                                        <th>ID</th>
+                                        <th>Nom</th>
+                                        <th>Type</th>
+                                        <th>Quantité utilisée</th>
+                                        <th>Info Fournisseur</th>
                                     </tr>
-                                </c:forEach>
-                                </tbody>
-                            </table>
-                        </div>
-                    </td>
-                </tr>
+                                    </thead>
+                                    <tbody>
+                                    <c:forEach var="resource" items="${task.resources}">
+                                        <tr>
+                                            <td>${resource.id}</td>
+                                            <td>${resource.name}</td>
+                                            <td>${resource.type}</td>
+                                            <td>${resource.quantityUsed}</td>
+                                            <td>${resource.supplierInfo}</td>
+                                        </tr>
+                                    </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </c:if>
             </c:forEach>
             </tbody>
         </table>
