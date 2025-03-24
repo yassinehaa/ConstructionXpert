@@ -2,39 +2,32 @@
 <html>
 <head>
     <title>Ajouter une Ressource</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/style/ressources/create.css">
 </head>
-<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+<body>
 <%@ include file="/header.jsp" %>
-<div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-    <h1 class="text-2xl font-bold text-gray-800 mb-6 text-center">Ajouter une Nouvelle Ressource</h1>
-    <form action="${pageContext.request.contextPath}/resources" method="post" class="space-y-4">
-        <div>
-            <label class="block text-gray-700 font-medium mb-1">Nom :</label>
-            <input type="text" name="name" required
-                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+<div class="container">
+    <h1>Ajouter une Nouvelle Ressource</h1>
+    <form action="${pageContext.request.contextPath}/resources" method="post" class="form">
+        <div class="form-group">
+            <label>Nom :</label>
+            <input type="text" name="name" required>
         </div>
-        <div>
-            <label class="block text-gray-700 font-medium mb-1">Type :</label>
-            <input type="text" name="type" required
-                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <div class="form-group">
+            <label>Type :</label>
+            <input type="text" name="type" required>
         </div>
-        <div>
-            <label class="block text-gray-700 font-medium mb-1">Quantité :</label>
-            <input type="number" name="quantity" required
-                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <div class="form-group">
+            <label>Quantité :</label>
+            <input type="number" name="quantity" required>
         </div>
-        <div>
-            <label class="block text-gray-700 font-medium mb-1">Informations Fournisseur :</label>
-            <textarea name="supplierInfo"
-                      class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 h-24 resize-y"></textarea>
+        <div class="form-group">
+            <label>Informations Fournisseur :</label>
+            <textarea name="supplierInfo"></textarea>
         </div>
-        <div class="flex space-x-4 mt-6">
-            <input type="submit" value="Créer"
-                   class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition duration-200 cursor-pointer">
-            <a href="${pageContext.request.contextPath}/resources"
-               class="w-full bg-gray-500 text-white py-2 rounded-md hover:bg-gray-600 transition duration-200 text-center">Retour</a>
+        <div class="form-actions">
+            <input type="submit" value="Créer" class="btn btn-add">
+            <a href="${pageContext.request.contextPath}/resources" class="btn btn-back">Retour</a>
         </div>
     </form>
 </div>
