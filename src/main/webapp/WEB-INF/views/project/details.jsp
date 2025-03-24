@@ -6,6 +6,7 @@
     <title>Détails du Projet</title>
 </head>
 <body>
+<%@ include file="/header.jsp" %>
 <div class="container">
     <h1>${project.name}</h1>
     <div class="project-info">
