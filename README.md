@@ -1,4 +1,5 @@
-ConstructionXpert Services - Application de Gestion de Projets de Construction
+# **ConstructionXpert Services - Application de Gestion de Projets de Construction**
+
 **Description**
 ConstructionXpert Services Solution est une application de gestion de projets basée sur le web, spécialement conçue pour les équipes de construction. Développée en tant que solution full-stack, elle permet aux administrateurs de créer, gérer et suivre efficacement les projets de construction, d'assigner des tâches aux membres de l'équipe et de superviser l'allocation des ressources. Grâce à une interface conviviale, l'application permet de visualiser, mettre à jour et supprimer des projets, des tâches et des ressources, assurant ainsi une planification et une organisation optimisées des flux de travail de construction.
 
@@ -16,7 +17,7 @@ ConstructionXpert Services Solution est une application de gestion de projets ba
 
 **Base de données** : MySQL
 
-**Frontend** : HTML, CSS (Tailwind), JavaScript
+**Frontend** : HTML, CSS , JavaScript
 
 Outils : Git (contrôle de version), Figma (maquettes)
 ![diagramme](Capture%20d'écran%202025-03-24%20153721.png)
